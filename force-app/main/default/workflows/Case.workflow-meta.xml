@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_alert_for_Case_Assignment</fullName>
+        <description>Email alert for Case Assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>ashish_salunkhe@persistent.com.sfhack</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Case_Assignment</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_alert_for_Case_Assignment1</fullName>
+        <description>Email alert for Case Assignment1</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>sf_psl_hackathon@august2021.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Case_Assignment</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_alert_for_Case_Assignment2</fullName>
+        <description>Email alert for Case Assignment2</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>dharmraj_sharma@persistent.com.sfhack</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Case_Assignment</template>
+    </alerts>
+    <alerts>
+        <fullName>X45mins_left</fullName>
+        <description>45mins left</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SupportEscalatedCaseNotification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>CaseFields</fullName>
+        <field>OwnerId</field>
+        <lookupValue>ashish_salunkhe@persistent.com.sfhack</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>CaseFields</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CaseFields1</fullName>
+        <field>OwnerId</field>
+        <lookupValue>dharmraj_sharma@persistent.com.sfhack</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>CaseFields1</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CaseFields2</fullName>
+        <field>OwnerId</field>
+        <lookupValue>sf_psl_hackathon@august2021.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>CaseFields2</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ChangePriorityToHigh</fullName>
+        <field>Priority</field>
+        <literalValue>High</literalValue>
+        <name>Changes the case priority to high.</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>CaseRule1</fullName>
+        <actions>
+            <name>Email_alert_for_Case_Assignment</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Case.Reason</field>
+            <operation>equals</operation>
+            <value>Login Issue</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New,Escalated</value>
+        </criteriaItems>
+        <description>MahaMetroLink Rule1</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>CaseRule2</fullName>
+        <actions>
+            <name>Email_alert_for_Case_Assignment2</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Case.Reason</field>
+            <operation>equals</operation>
+            <value>Payment Issue,Technical Issue</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>MahaMetroLink Rule2</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>CaseRule3</fullName>
+        <actions>
+            <name>Email_alert_for_Case_Assignment1</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Case.Reason</field>
+            <operation>equals</operation>
+            <value>Feedback,Other</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Working</value>
+        </criteriaItems>
+        <description>MahaMetroLink Rule3</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Initial_Response</fullName>
+        <assignedToType>owner</assignedToType>
+        <dueDateOffset>1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>High</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Initial Response</subject>
+    </tasks>
+</Workflow>

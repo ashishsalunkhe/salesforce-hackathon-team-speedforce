@@ -1,0 +1,23 @@
+<template>    
+    <lightning-card title="Best Rated Restaurants nearby..." icon-name="custom:custom65"> 
+            <ul class="slds-has-dividers_bottom-space">
+                <template for:each={restaurantsList} for:item='rest'>
+                        <li  key={rest.restaurant.id} class="slds-item" value={rest} >
+                                <lightning-tile label={rest.restaurant.name} href="javascript:void(0)" type="media">
+                                    <lightning-avatar slot="media" src={rest.restaurant.thumb} fallback-icon-name="standard:person_account" alternative-text={rest.restaurant.name}></lightning-avatar>
+                                    <ul class="slds-list_horizontal slds-has-dividers_right">
+                                        <li class="slds-item">{rest.restaurant.cuisines} </li>
+                                        <li class="slds-item">Rating: ⭐{rest.restaurant.user_rating.aggregate_rating}</li>
+                                        <li class="slds-item">{rest.restaurant.currency}{rest.restaurant.average_cost_for_two} for 2</li>
+                                        <br/>
+                                        <li>Address: {rest.restaurant.location.address}</li>
+                                    </ul>
+                                </lightning-tile>
+                        </li>
+                </template>
+            </ul>
+    </lightning-card>
+    <template if:false={restaurantsList}>
+            <h1 style="text-align: center">No records to display</h1>
+    </template>
+</template>

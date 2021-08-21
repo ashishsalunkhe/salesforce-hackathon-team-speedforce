@@ -1,0 +1,76 @@
+<template>
+    <lightning-card>
+                <lightning-layout>
+                    <lightning-layout-item>
+                        <div class="slds-grid slds-gutters slds-wrap">
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <!-- <lightning-combobox label="Mode of Payment" name="Mode_of_Payment__c" class="payment"
+                                    options={paymentPicklistOptions} onchange={handlepaymentPicklist}
+                                    value={repaymentDetails.Mode_of_Payment__c} required >
+                                </lightning-combobox> -->
+                                <lightning-input type="text" class = "valField" name="Frequency__c" label="Frequency"
+                                    data-target-id="repaymentDetailsAttribute" value="Monthly" disabled>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <!-- <lightning-combobox label="Frequency" name="Frequency__c" class="frequency"
+                                    options={frequencyPicklistOptions} onchange={handlefrequencyPicklist}
+                                    value={repaymentDetails.Frequency__c} disabled>
+                                </lightning-combobox> -->
+                            
+                                <lightning-input type="text" class = "valField" name="Frequency__c" label="Frequency"
+                                    data-target-id="repaymentDetailsAttribute" value="Monthly" disabled>
+                                </lightning-input>
+                            </div>
+
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <lightning-input type="text" class = "valField" name="Cheque_No__c" label="Cheque No"
+                                    data-target-id="repaymentDetailsAttribute" value="" onchange={handleChequeNoValues}>
+                                </lightning-input> 
+                            </div>
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <lightning-input type="number" name="EMI_Amount__c" label="EMI Amount"
+                                    data-target-id="repaymentDetailsAttribute" value="" onchange={handleEmiAmount} onblur={handleNachAmount}
+                                    class="emiAmount">
+                                </lightning-input> 
+                            </div>
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <!-- <lightning-combobox label="Tenure" name="Tenure__c" class="tenure"
+                                    options={tenurePicklistOptions} onchange={handletenurePicklist}
+                                    value="" required>
+                                </lightning-combobox> -->
+                                <lightning-input type="number" name="EMI_Amount__c" label="EMI Amount"
+                                    data-target-id="repaymentDetailsAttribute" value="" onchange={handleEmiAmount} onblur={handleNachAmount}
+                                    class="emiAmount">
+                                </lightning-input> 
+
+                            </div>
+                            
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <lightning-input type="number" name="NACH_Amount__c" label="NACH Amount"
+                                    data-target-id="repaymentDetailsAttribute" value="" onblur={handleNachAmount}
+                                    pattern="[0-9]*" disabled>
+                                </lightning-input> 
+                            </div>
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <lightning-input type="date" name="EMI_Start_Date__c" label="EMI Start Date"
+                                    data-target-id="repaymentDetailsAttribute" value="" onchange={handleEndDate} 
+                                    class = "emistart">
+                                </lightning-input> 
+                            </div>
+                            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                                <lightning-input type="date" name="EMI_End_Date__c" label="EMI End Date"
+                                    data-target-id="repaymentDetailsAttribute" value=""
+                                    disabled>
+                                </lightning-input> 
+                            </div>
+                        </div>
+                        <div class="slds-m-top_small slds-align_absolute-center"> 
+                            <lightning-button variant="brand" label="Save" title="Save" slot="actions" class=slds-align_absolute-center
+                            onclick={addingRepaymentDetails}>
+                            </lightning-button>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+    </lightning-card>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <!--lightning-card: It applies a container around a related grouping of information -->
+   
+    <lightning-card  title="Nearby Restaurants powered by Zomato" icon-name="standard:location">
+        <div class="c-container">
+            <!-- lightning-layout: Represents a responsive grid system for arranging containers on a page -->
+            <lightning-layout horizontal-align="space">
+                <!--lightning-layout-item : It groups information together to define visual grids, spacing, and sections -->
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="10">
+                            <lightning-input type="text" name="location" label="Location" placeholder="enter location here..." value={location} onchange={handleLocationChange} ></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small" size="2">
+                            <div style="height: 20px;"></div>
+                            <lightning-button variant='brand' label="Search" title="Search Restaurants" onclick={selectLocation} class="slds-m-left_x-small"></lightning-button>
+                    </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

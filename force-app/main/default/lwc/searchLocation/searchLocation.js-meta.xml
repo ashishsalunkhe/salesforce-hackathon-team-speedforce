@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="searchRestaurants">
+    <!--apiVersion : A double value that binds the component to a Salesforce API version -->
+    <apiVersion>46.0</apiVersion>
+    <!--If isExposed is true, the component is exposed to Lightning App Builder or Experience Builder.-->
+    <isExposed>true</isExposed>
+    <!--targets: Specifies where the component can be added, such as on a type of Lightning Page-->
+    <targets>
+        <!--Enables a component to be used on an App page in Lightning App Builder -->
+        <target>lightning__AppPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+</LightningComponentBundle>

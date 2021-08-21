@@ -1,0 +1,52 @@
+<template>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item>
+                <div class="slds-grid slds-gutters slds-wrap">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element"> 
+                        <lightning-input type="text" name="Name" label="Contact Name"
+                            data-target-id="caseAttribute" value={cases.Name} onchange={handleCase}
+                            class="mandatory" required>
+                        </lightning-input> 
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                        <lightning-input type="phone" name="ContactPhone" label="Contact Phone"
+                            data-target-id="caseAttribute" value={cases.ContactPhone} onchange={handleCase}
+                            class="mandatory" required>
+                        </lightning-input> 
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                        <lightning-input type="email" name="ContactEmail" label="Contact Email"
+                            data-target-id="caseAttribute" value={cases.ContactEmail} onchange={handleCase}
+                            class="mandatory" required>
+                        </lightning-input> 
+                    </div>
+
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                        <lightning-input type="text" name="Subject" label="Subject"
+                            data-target-id="caseAttribute" value={cases.Subject} onchange={handleCase}
+                            class="mandatory" required>
+                        </lightning-input> 
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                        <lightning-input type="text" name="Description" label="Description"
+                            data-target-id="caseAttribute" value={cases.Description} onchange={handleCase}
+                            class="mandatory" required>
+                        </lightning-input> 
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-3 slds-form-element">
+                        <lightning-combobox label="Status" name="Status" class="status"
+                            options={statusPicklistOptions} onchange={handleStatusPicklist}
+                            value={cases.Status} required>
+                        </lightning-combobox>
+                    </div>
+                </div>
+                <div class="slds-m-top_small slds-align_absolute-center"> 
+                    <lightning-button variant="brand" label="Submit" title="Submit" slot="actions" class=slds-align_absolute-center
+                    onclick={handleSubmit}>
+                    </lightning-button>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
